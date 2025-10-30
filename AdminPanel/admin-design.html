@@ -118,32 +118,44 @@
         </div>
     </div>
 
-<!-- ✅ Firebase v8 (Compatible with admin-design.js) -->
+<!-- ✅ FIREBASE v8 SDK -->
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-storage.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
 
 <script>
+console.log("Initializing Firebase (v8)...");
+
 const firebaseConfig = {
-    apiKey: "AIzaSyAvvhMpf_WitusAfR-sqI8pMLIAPqygOOY",
-    authDomain: "everpeak-df533.firebaseapp.com",
-    projectId: "everpeak-df533",
-    storageBucket: "everpeak-df533.firebasestorage.app",
-    messagingSenderId: "314009845647",
-    appId: "1:314009845647:web:60381fba9cbecb51c395fa",
-    measurementId: "G-0XEXF5JSZ8"
+  apiKey: "AIzaSyDcwPL1JyHCWxH2te871u7kW5DOplOVJs8",
+  authDomain: "everpeak-naturecamp.firebaseapp.com",
+  projectId: "everpeak-naturecamp",
+  storageBucket: "everpeak-naturecamp.appspot.com", // ✅ CORRECT
+  messagingSenderId: "453666489265",
+  appId: "1:453666489265:web:55f9312e56dd88e4e9f390",
+  measurementId: "G-784MPY1CQ3"
 };
 
+// ✅ Prevent duplicate initialization
 if (!firebase.apps.length) {
-    firebase.initializeApp(firebaseConfig);
+  firebase.initializeApp(firebaseConfig);
+} else {
+  firebase.app();
 }
 
+// ✅ Global Firebase Services
 window.db = firebase.firestore();
-console.log("✅ Firebase v8 Connected");
+window.auth = firebase.auth();
+window.storage = firebase.storage();
+
+console.log("✅ Firebase Ready: Firestore + Auth + Storage");
 </script>
 
-<!-- Admin Panel Logic -->
+<!-- ✅ YOUR ADMIN JS -->
 <script src="admin-design.js"></script>
+
 
 </body>
 </html>
+
