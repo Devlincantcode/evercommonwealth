@@ -118,28 +118,31 @@
         </div>
     </div>
 
-<!-- ✅ FIREBASE CONNECTED (Your Actual Config) -->
-<script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-app.js";
-    import { getFirestore } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore.js";
+<!-- ✅ Firebase v8 (Compatible with admin-design.js) -->
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
 
-    const firebaseConfig = {
-        apiKey: "AIzaSyAvvhMpf_WitusAfR-sqI8pMLIAPqygOOY",
-        authDomain: "everpeak-df533.firebaseapp.com",
-        projectId: "everpeak-df533",
-        storageBucket: "everpeak-df533.firebasestorage.app",
-        messagingSenderId: "314009845647",
-        appId: "1:314009845647:web:60381fba9cbecb51c395fa",
-        measurementId: "G-0XEXF5JSZ8"
-    };
+<script>
+const firebaseConfig = {
+    apiKey: "AIzaSyAvvhMpf_WitusAfR-sqI8pMLIAPqygOOY",
+    authDomain: "everpeak-df533.firebaseapp.com",
+    projectId: "everpeak-df533",
+    storageBucket: "everpeak-df533.firebasestorage.app",
+    messagingSenderId: "314009845647",
+    appId: "1:314009845647:web:60381fba9cbecb51c395fa",
+    measurementId: "G-0XEXF5JSZ8"
+};
 
-    const app = initializeApp(firebaseConfig);
-    window.db = getFirestore(app);
+if (!firebase.apps.length) {
+    firebase.initializeApp(firebaseConfig);
+}
 
-    console.log("✅ Firebase Connected to Admin Panel");
+window.db = firebase.firestore();
+console.log("✅ Firebase v8 Connected");
 </script>
 
-<!-- Your Admin JS (Now Works) -->
+<!-- Admin Panel Logic -->
 <script src="admin-design.js"></script>
 
 </body>
